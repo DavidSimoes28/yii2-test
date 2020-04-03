@@ -25,6 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
+                <?php
+                    $authItems = \yii\helpers\ArrayHelper::map($authItems,'name','name');
+                ?>
+
+                <?= $form->field($model, 'permissions')->checkboxList($authItems) ?>
+
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>

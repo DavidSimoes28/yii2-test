@@ -4,9 +4,9 @@
 /* @var $content string */
 
 use backend\assets\AppAsset;
-use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 
@@ -23,10 +23,12 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+
+<body class="hold-transition sidebar-mini layout-fixed">
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<div class="wrapper">
+
     <?php
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
@@ -37,6 +39,9 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Departments', 'url' => ['/departments/index']],
+        ['label' => 'Companies', 'url' => ['/companies/index']],
+        ['label' => 'Branches', 'url' => ['/branches/index']]
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
@@ -57,6 +62,7 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
+
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -66,13 +72,6 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>

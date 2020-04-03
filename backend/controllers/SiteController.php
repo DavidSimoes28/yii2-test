@@ -60,6 +60,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        /*$eurValue = Yii::$app->MyComponent->currencyConverter("USD","LKR",100);
+        print_r($eurValue);
+        die();*/
         return $this->render('index');
     }
 
